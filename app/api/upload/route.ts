@@ -5,7 +5,8 @@ import { LIMITS } from "@/lib/validate";
 export const runtime = "nodejs";
 
 const PINATA_JWT = process.env.PINATA_JWT;
-const IPFS_GATEWAY = (process.env.IPFS_GATEWAY || "https://ipfs.io/ipfs").replace(/\/$/, "");
+// ipfs.io answers 403 to many clients, so links point at Pinata's gateway, which serves what Pinata pins.
+const IPFS_GATEWAY = (process.env.IPFS_GATEWAY || "https://gateway.pinata.cloud/ipfs").replace(/\/$/, "");
 
 // Light per-IP throttle so a public deployment can't drain the Pinata quota in a loop.
 const hits = new Map<string, number[]>();

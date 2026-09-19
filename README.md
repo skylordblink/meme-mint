@@ -101,6 +101,7 @@ Set `NEXT_PUBLIC_DEV_WALLET_SECRET` in `.env.local` to the secret key (a JSON ar
 
 - The site and its upload endpoint are public, and each visitor is limited to 8 uploads per minute. Anyone who finds your link can create tokens using your Pinata storage, so keep the link to yourself or put the site behind a password (Vercel offers password protection on paid plans).
 - Vercel's free Hobby plan is meant for personal, non-commercial use. If you will use the site for business, use a paid plan or another host that runs Next.js.
+- Logos and token info load through Pinata's public gateway by default. It works out of the box but the first load can take several seconds. A free dedicated gateway in your Pinata account is faster: create one under Gateways and set `IPFS_GATEWAY` to `https://your-name.mypinata.cloud/ipfs`.
 - Revoking authorities and locking metadata cannot be undone. The form defaults to all three on, which is what buyers of a new token usually look for.
 - This tool creates tokens. It does not add liquidity or trade. To make a token tradable, create a pool on a DEX such as Raydium or Meteora.
 - You are responsible for the tokens you create and for following the laws where you operate. Nothing in this project is financial advice.
